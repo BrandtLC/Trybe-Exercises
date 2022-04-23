@@ -41,14 +41,33 @@ addDays(dezDaysList);
 
 const buttonsCountainer = document.querySelector(".buttons-container");
 
-function createButton() {
-  const button = document.createElement("button");
-  const buttonText = document.createElement("h3");
-  buttonText.innerHTML = "Feriados";
+function createElement(where, type, typeText, text, id) {
+  const button = document.createElement(type);
+  const buttonText = document.createElement(typeText);
+  buttonText.innerHTML = text;
   button.appendChild(buttonText);
-  button.id = 'btn-holiday';
+  button.id = id;
 
-  buttonsCountainer.appendChild(button);
+  where.appendChild(button);
 }
 
-createButton();
+createElement(buttonsCountainer, "button", "h3", "Feriados", "btn-holiday");
+
+let listElement = document.querySelector(".days-container #days li");
+
+listElement.className = "holiday";
+const button = document.querySelector("#btn-holiday");
+
+button.addEventListener("click", function () {
+  const holidays = document.getElementsByClassName("holiday");
+  for (index = 0; index < holidays.length; index += 1) {
+    const holidayDay = holidays[index];
+    if (holidayDay.style.cssText  === "background-color: rgb(238, 238, 238);"||holidayDay.style.cssText === "") {
+      holidayDay.style.backgroundColor = "#dce73e";
+    } else {
+      holidayDay.style.backgroundColor = "rgb(238,238,238)";
+    }
+  }
+});
+createElement(buttonsCountainer, "button", "h3", "Sexta-feira", "btn-friday");
+
