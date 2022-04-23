@@ -94,3 +94,28 @@ fridayButton.addEventListener("click", function () {
     }
   }
 });
+
+
+let listElement = document.querySelectorAll(".days-container #days li");
+
+// console.log(listElement[0].innerHTML)
+// listElement[0].addEventListener("mouseover",function() {
+//   listElement[0].style.fontSize = "35px";
+// })
+
+// console.log(listElement[0].innerHTML)
+// listElement[0].addEventListener("mouseleave",function() {
+//   listElement[0].style.fontSize = "20px";
+// })
+function overLeave () {
+  const listElement = document.querySelectorAll(".days-container #days li");
+  for(let index = 0; index < listElement.length; index += 1){
+    listElement[index].addEventListener("mouseover",function() {
+      event.target.style.fontSize = "25px";
+    })
+    listElement[index].addEventListener("mouseleave",function() {
+      event.target.style.fontSize = "20px";
+    })
+  }
+}
+overLeave ()
