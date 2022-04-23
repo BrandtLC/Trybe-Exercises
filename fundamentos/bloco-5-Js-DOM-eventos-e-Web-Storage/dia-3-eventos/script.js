@@ -53,21 +53,44 @@ function createElement(where, type, typeText, text, id) {
 
 createElement(buttonsCountainer, "button", "h3", "Feriados", "btn-holiday");
 
-let listElement = document.querySelector(".days-container #days li");
+function makeHolidays(feriados) {
+  let listElement = document.querySelectorAll(".days-container #days li");
+  for (days of feriados) {
+    listElement[days].className = "holiday";
+  }
+}
+const feriadosDez = [16, 25, 26, 32];
+makeHolidays(feriadosDez);
 
-listElement.className = "holiday";
-const button = document.querySelector("#btn-holiday");
+const holidayButton = document.querySelector("#btn-holiday");
 
-button.addEventListener("click", function () {
+holidayButton.addEventListener("click", function () {
   const holidays = document.getElementsByClassName("holiday");
   for (index = 0; index < holidays.length; index += 1) {
     const holidayDay = holidays[index];
-    if (holidayDay.style.cssText  === "background-color: rgb(238, 238, 238);"||holidayDay.style.cssText === "") {
+    if (
+      holidayDay.style.cssText === "background-color: rgb(238, 238, 238);" ||
+      holidayDay.style.cssText === ""
+    ) {
       holidayDay.style.backgroundColor = "#dce73e";
     } else {
       holidayDay.style.backgroundColor = "rgb(238,238,238)";
     }
   }
 });
+
+
 createElement(buttonsCountainer, "button", "h3", "Sexta-feira", "btn-friday");
 
+const fridayButton = document.querySelector("#btn-friday");
+
+fridayButton.addEventListener("click", function () {
+  const fridays = document.querySelectorAll("#days li");
+  for (index = 5; index < fridays.length; index += 7) {
+    if (fridays[index].innerText == "Sextou!!!") {
+      fridays[index].innerText = dezDaysList[index];
+    } else {
+      fridays[index].innerText = "Sextou!!!";
+    }
+  }
+});
