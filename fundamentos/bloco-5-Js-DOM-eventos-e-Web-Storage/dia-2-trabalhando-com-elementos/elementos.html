@@ -55,9 +55,70 @@
       }
     </style>
   </head>
+
   <body>
     <script>
-      // COLOQUE SEU CÓDIGO AQUI
+      let h1Text = "Exercício 5.2 - JavaScript DOM";
+      let h1Element = document.createElement("h1");
+      h1Element.innerText = h1Text;
+      document.body.appendChild(h1Element);
+
+      let tagMain = document.createElement("main");
+      tagMain.classList.add("main-content");
+      document.body.appendChild(tagMain);
+
+      let tagSection = document.createElement("section");
+      tagSection.classList.add("center-content");
+      let mainDiv = document.querySelector(".main-content");
+      mainDiv.appendChild(tagSection);
+
+      let pElement = document.createElement("p");
+      pElement.innerText =
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+      let sectionDiv = document.getElementsByClassName("center-content");
+      sectionDiv[0].appendChild(pElement);
+
+      let tagSectionLeft = document.createElement("section");
+      tagSectionLeft.classList.add("left.content");
+      mainDiv.appendChild(tagSectionLeft);
+
+      let tagSectionRight = document.createElement("section");
+      tagSectionRight.classList.add("right.content");
+      mainDiv.appendChild(tagSectionRight);
+
+      let image = document.createElement("img");
+      image.src = "https://picsum.photos/200";
+      image.classList.add("small-image");
+      tagSectionLeft.appendChild(image);
+
+      let numbers = [
+        "um",
+        "dois",
+        "três",
+        "quatro",
+        "cinco",
+        "seis",
+        "sete",
+        "oito",
+        "nove",
+        "dez",
+      ];
+      let list = document.createElement("ul");
+      for (element of numbers) {
+        let number = element;
+        let listItem = document.createElement("li");
+        listItem.innerText = element;
+        list.appendChild(listItem);
+      }
+      tagSectionRight.appendChild(list);
+
+      function createNewElement(type, father) {
+        let newElement = document.createElement(type);
+        father.appendChild(newElement);
+      }
+      createNewElement('h3', tagMain)
+      createNewElement('h3', tagMain)
+      createNewElement('h3', tagMain)
     </script>
   </body>
 </html>
